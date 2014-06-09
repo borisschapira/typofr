@@ -1,0 +1,12 @@
+{
+    "name": "Boris/typofr",
+    "authors": [
+        {
+            "name": "Boris",
+            "email": "bschapira@clever-age.com"
+        }
+    ],
+    "require": {
+        "jolicode/jolitypo": "0.1.*"
+    }
+}
