@@ -1,4 +1,4 @@
 typofr
 ======
 
-A Wordpress plugin for french typography management, inspired by SPIP 
+A Wordpress plugin for french typography management, powered by JoliTypo
