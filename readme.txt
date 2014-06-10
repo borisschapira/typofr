@@ -17,8 +17,8 @@ __Warning__ : your blog can suffer from degraded performances if you do not use 
 == Installation ==
 
 1. Copy the `typofr` folder to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Go make something fun of your life, you've finished here.
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Go make something fun of your life, you've finished here.
 
 == Changelog ==
 
