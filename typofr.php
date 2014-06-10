@@ -3,7 +3,7 @@
 Plugin Name: TypoFR
 Plugin URI: https://github.com/borisschapira/typofr
 Description: a plugin for french typography management, powered by JoliTypo
-Version: 0.1
+Version: 0.2
 Author: Boris Schapira
 Author URI: http://borisschapira.com
 License: MIT
