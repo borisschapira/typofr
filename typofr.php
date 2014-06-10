@@ -32,16 +32,11 @@ function typofr($text)
     }
 
     $decoded = utf8_decode($text);
-    $reEncoded = utf8_encode($decoded);
-
     $fixed = $fixer->fix($decoded);
-    $fixedWrong = $fixer->fix($reEncoded);
-
-    $logs = "<script> console && console.log('-------\\nOriginal : ".$text." (".mb_detect_encoding($text).")\\nDecoded : ".$decoded." (".mb_detect_encoding($decoded).")\\nRe-encoded : ".$reEncoded." (".mb_detect_encoding($reincoded).")\\nFix(Decoded) : ".$fixed." (".mb_detect_encoding($fixed).")\\nFix(Re-encoded) : ".$fixedWrong." (".mb_detect_encoding($fixedWrong).")')</script>";
-
-    return $fixed.$logs;
+    
+    return $fixed;
 }
 
-//add_filter('the_content', 'typofr');
+add_filter('the_content', 'typofr');
 add_filter('the_title', 'typofr');
 
