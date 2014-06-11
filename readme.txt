@@ -2,7 +2,7 @@
 Contributors: boris.schapira
 Tags: typography
 Tested up to: 3.9
-Stable tag: 0.2
+Stable tag: 0.3
 Requires at least: 3.0
 License: MIT
 License URI: https://raw.githubusercontent.com/borisschapira/typofr/master/LICENSE
@@ -21,6 +21,12 @@ __Warning__ : your blog can suffer from degraded performances if you do not use 
 3. Go make something fun of your life, you've finished here.
 
 == Changelog ==
+
+= 0.3 =
+
+* Better OOP structure
+* Back-Office settings for content to fix
+* Back-Office settings for fix to apply
 
 = 0.2 =
 
