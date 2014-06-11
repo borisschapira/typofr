@@ -12,6 +12,7 @@ A Wordpress plugin for french typography management, powered by the JoliTypo lib
 == Description ==
 
 A Wordpress plugin for french typography management, powered by [JoliTypo](https://github.com/jolicode/JoliTypo).
+
 __Warning__ : your blog can suffer from degraded performances if you do not use a cache-management plugin.
 
 == Installation ==
@@ -19,6 +20,11 @@ __Warning__ : your blog can suffer from degraded performances if you do not use 
 1. Copy the `typofr` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Go make something fun of your life, you've finished here.
+
+== Screenshots ==
+
+1. Wordpress admin settings management screenshot-1.png.
+2. What does this plugin ? See an example with screenshot-2.png
 
 == Changelog ==
 

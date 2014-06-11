@@ -210,21 +210,21 @@ class typofr
 
             $fixers = array();
             if($fixOptions['fix_ellipsis'])
-                $fixers[] = 'Ellipsis';
+                array_push($fixers, 'Ellipsis');
             if($fixOptions['fix_dimension'])
-                $fixers[] = 'Dimension';
+                array_push($fixers, 'Dimension');
             if($fixOptions['fix_dash'])
-                $fixers[] = 'Dash';
+                array_push($fixers, 'Dash');
             if($fixOptions['fix_french_quotes'])
-                $fixers[] = 'FrenchQuotes';
+                array_push($fixers, 'FrenchQuotes');
             if($fixOptions['fix_french_no_breakspace'])
-                $fixers[] = 'FrenchNoBreakSpace';
+                array_push($fixers, 'FrenchNoBreakSpace');
             if($fixOptions['fix_curly_quote'])
-                $fixers[] = 'CurlyQuote';
+                array_push($fixers, 'CurlyQuote');
             if($fixOptions['fix_hyphen'])
-                $fixers[] = 'Hyphen';
+                array_push($fixers, 'Hyphen');
             if($fixOptions['fix_trademark'])
-                $fixers[] = 'Trademark';
+                array_push($fixers, 'Trademark');
 
             $fixer = new Fixer($fixers);
             $fixer->setLocale('fr_FR'); // Needed by the Hyphen Fixer
