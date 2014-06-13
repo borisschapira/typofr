@@ -2,7 +2,7 @@
 Contributors: boris.schapira
 Tags: typography
 Tested up to: 3.9
-Stable tag: 0.3
+Stable tag: 0.4
 Requires at least: 3.0
 License: MIT
 License URI: https://raw.githubusercontent.com/borisschapira/typofr/master/LICENSE
@@ -27,6 +27,11 @@ __Warning__ : your blog can suffer from degraded performances if you do not use 
 2. What does this plugin ? See an example with screenshot-2.png
 
 == Changelog ==
+
+= 0.4 =
+
+* Adding i18n support
+* Adding french translation
 
 = 0.3 =
 

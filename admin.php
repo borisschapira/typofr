@@ -69,7 +69,7 @@ class typofr_admin extends typofr
         $this->set_fields();
 
         // Translation already in WP combined with plugin's name.
-        $this->text_settings = self::NAME . ' ' . __('Settings');
+        $this->text_settings = sprintf(__( '%s : Settings'), self::NAME );
 
         $this->capability_required = 'manage_options';
         $this->form_action = 'options.php';

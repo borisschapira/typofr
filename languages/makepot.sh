@@ -21,7 +21,7 @@ if [[ $1 == "-h" || $1 == "--help" ]] ; then
 	exit 1
 fi
 
-cd "`dirname "$0"`/.."
+cd "`dirname "$0"`/../.."
 
 if [ ! -d makepot ] ; then
 	svn checkout http://i18n.svn.wordpress.org/tools/trunk makepot
@@ -32,5 +32,5 @@ svn up
 
 php -d 'error_reporting=E_ALL^E_STRICT' \
 	makepot.php wp-plugin \
-	../oop-plugin-template-solution \
-	../oop-plugin-template-solution/languages/oop-plugin-template-solution.pot
+	../typofr/trunk \
+	../typofr/trunk/languages/typofr.pot

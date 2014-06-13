@@ -5,7 +5,7 @@
  * Description: a plugin for french typography management, powered by JoliTypo
  *
  * Plugin URI: https://github.com/borisschapira/typofr
- * Version: 0.3
+ * Version: 0.4
  *
  * Author: Boris Schapira
  * Author URI: http://borisschapira.com
@@ -122,7 +122,6 @@ class typofr
 
         /** @noinspection PhpUndefinedFunctionInspection */
         if (is_admin()) {
-            $this->load_plugin_textdomain();
 
             require_once dirname(__FILE__) . '/admin.php';
             $admin = new typofr_admin;
@@ -169,6 +168,10 @@ class typofr
         }
         if ($this->options['is_enable_content_fix']) {
             add_filter('the_content', array(&$this, 'fixTextContent'));
+        }
+
+        if (is_admin()) {
+            $this->load_plugin_textdomain();
         }
     }
 

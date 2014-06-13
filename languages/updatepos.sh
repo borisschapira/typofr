@@ -26,5 +26,5 @@ cd "`dirname "$0"`"
 
 while read file ; do
 	echo "Merging $file..."
-	msgmerge -vUN --backup=off $file oop-plugin-template-solution.pot
+	msgmerge -vUN --backup=off $file typofr.pot
 done < <(ls *po)
