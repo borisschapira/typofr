@@ -79,6 +79,8 @@ class typofr
      */
     protected $options_default = array(
         'deactivate_deletes_data' => 1,
+        'debug_in_console' => 0,
+        'force_utf8_decode' => 0,
         'is_enable_title_fix' => 1,
         'is_enable_content_fix' => 1,
         'fix_ellipsis' => 1,
@@ -188,6 +190,11 @@ class typofr
      */
     public function fixTextContent($text)
     {
+        // Should the plugin store log in the console ?
+        $doDebug = $this->options['debug_in_console'];
+        $logs = array();
+
+        // What fixes should the plugin apply ?
         static $fixOptions;
         if(!isset($fixOptions)){
             $fixOptions = array();
@@ -199,15 +206,18 @@ class typofr
             }
         }
 
+        // Should this function call initialize the fixe ?
         static $enableFixer;
         if(!isset($enableFixer)){
             $enableFixer = count(array_filter($fixOptions));
         }
 
+        // If no fix is activated, simply returns the original text
         if(!$enableFixer){
             return $text;
         }
 
+        // Else, initialize the Jolitypo fixer with the good options
         static $fixer;
         if (!isset($fixer)) {
 
@@ -229,19 +239,48 @@ class typofr
             if($fixOptions['fix_trademark'])
                 array_push($fixers, 'Trademark');
 
+            array_push($logs, sprintf('Fixers : %s', implode(',', $fixers)));
+
             $fixer = new Fixer($fixers);
             $fixer->setLocale('fr_FR'); // Needed by the Hyphen Fixer
         }
 
-        $decoded = utf8_decode($text);
-        $fixed = $fixer->fix($decoded);
+        array_push($logs, sprintf('Original text : %s', $text));
+        $decoded = $text;
+        if($this->options['force_utf8_decode'] || $this->detectUTF8($text)){
+            array_push($logs, 'Text is UTF8, will be decoded with utf8_decode');
+            $decoded = utf8_decode($text);
+            array_push($logs, sprintf('Decoded text : %s', $decoded));
+        }
 
-        return $fixed;
+        $fixed = $fixer->fix($decoded);
+        array_push($logs, sprintf('Fixed text : %s', $fixed));
+        array_push($logs, sprintf('For info, original text fixed : %s', $text));
+
+        $logs = array_map(function($t){
+                return trim(preg_replace('/\s+/', ' ', $t));
+            }, $logs);
+        $scriptLogs = $doDebug ? "<script>console && console.log('".implode("\\n",$logs)."')</script>" : '';
+
+        return $fixed.$scriptLogs;
     }
 
     /*
      * ===== INTERNAL METHODS ====
      */
+
+    protected function detectUTF8($string)
+    {
+        return preg_match('%(?:
+        [\xC2-\xDF][\x80-\xBF]        # non-overlong 2-byte
+        |\xE0[\xA0-\xBF][\x80-\xBF]               # excluding overlongs
+        |[\xE1-\xEC\xEE\xEF][\x80-\xBF]{2}      # straight 3-byte
+        |\xED[\x80-\x9F][\x80-\xBF]               # excluding surrogates
+        |\xF0[\x90-\xBF][\x80-\xBF]{2}    # planes 1-3
+        |[\xF1-\xF3][\x80-\xBF]{3}                  # planes 4-15
+        |\xF4[\x80-\x8F][\x80-\xBF]{2}    # plane 16
+        )+%xs', $string);
+    }
 
     /**
      * Sanitizes output via htmlspecialchars() using UTF-8 encoding
