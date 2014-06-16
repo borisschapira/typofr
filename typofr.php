@@ -204,6 +204,7 @@ class typofr
                     $fixOptions[$key] = $value;
                 }
             }
+            array_push($logs, sprintf('Fixers : %s', implode(',', $fixOptions)));
         }
 
         // Should this function call initialize the fixe ?
@@ -221,6 +222,7 @@ class typofr
         static $fixer;
         if (!isset($fixer)) {
             $fixer = $this->createFixer($fixOptions);
+            //var_dump($fixer->fix('λ'));
         }
 
         array_push($logs, sprintf('Original text : %s', $text));
@@ -274,8 +276,6 @@ class typofr
             array_push($fixers, 'Hyphen');
         if($fixOptions['fix_trademark'])
             array_push($fixers, 'Trademark');
-
-        array_push($logs, sprintf('Fixers : %s', implode(',', $fixers)));
 
         $fixer = new Fixer($fixers);
         $fixer->setLocale('fr_FR'); // Needed by the Hyphen Fixer
