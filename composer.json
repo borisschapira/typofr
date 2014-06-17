@@ -7,6 +7,6 @@
         }
     ],
     "require": {
-        "jolicode/jolitypo": "0.1.*"
+        "jolicode/jolitypo": "dev-contentEncoding"
     }
 }

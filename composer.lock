@@ -4,26 +4,30 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e1b5999912ec2b54f17058033c171162",
+    "hash": "ffe68f79722e84cb46aa8712466bb93c",
     "packages": [
         {
             "name": "jolicode/jolitypo",
-            "version": "v0.1.3",
+            "version": "dev-contentEncoding",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jolicode/JoliTypo.git",
-                "reference": "4ecdc0add2ae30f20a9ada12ec88653bd2d15457"
+                "reference": "d5be8bed11b678dca3f69557308c827eae8dfcf8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jolicode/JoliTypo/zipball/4ecdc0add2ae30f20a9ada12ec88653bd2d15457",
-                "reference": "4ecdc0add2ae30f20a9ada12ec88653bd2d15457",
+                "url": "https://api.github.com/repos/jolicode/JoliTypo/zipball/d5be8bed11b678dca3f69557308c827eae8dfcf8",
+                "reference": "d5be8bed11b678dca3f69557308c827eae8dfcf8",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
+                "lib-libxml": "*",
                 "org_heigl/hyphenator": ">=2.0.3",
                 "php": ">=5.3.0"
+            },
+            "conflict": {
+                "ext-apc": "3.1.11"
             },
             "type": "library",
             "extra": {
@@ -56,7 +60,7 @@
                 "smartquote",
                 "typography"
             ],
-            "time": "2013-11-14 19:25:44"
+            "time": "2014-06-17 07:52:49"
         },
         {
             "name": "org_heigl/hyphenator",
@@ -109,9 +113,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "jolicode/jolitypo": 20
+    },
     "platform": [
 
     ],

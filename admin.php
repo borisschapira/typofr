@@ -210,14 +210,6 @@ class typofr_admin extends typofr
                 'bool0' => __("No.", self::ID),
                 'bool1' => __("Yes, please.", self::ID),
             ),
-            'force_utf8_decode' => array(
-                'section' => 'misc',
-                'label' => __("UTF8 WTF ?", self::ID),
-                'text' => __("Should the plugin decode UTF8 before fixing ?", self::ID),
-                'type' => 'bool',
-                'bool0' => __("No.", self::ID),
-                'bool1' => __("Yes, please.", self::ID),
-            ),
             'is_enable_title_fix' => array(
                 'section' => 'contents',
                 'label' => __("Title fixing", self::ID),
