@@ -4,26 +4,26 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ffe68f79722e84cb46aa8712466bb93c",
+    "hash": "8d27102eb8c62a08aef467ff8b1511ae",
     "packages": [
         {
             "name": "jolicode/jolitypo",
-            "version": "dev-contentEncoding",
+            "version": "v0.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jolicode/JoliTypo.git",
-                "reference": "d5be8bed11b678dca3f69557308c827eae8dfcf8"
+                "reference": "8539ddb6a9bf0ca710d033a29d1030bbc423fb76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jolicode/JoliTypo/zipball/d5be8bed11b678dca3f69557308c827eae8dfcf8",
-                "reference": "d5be8bed11b678dca3f69557308c827eae8dfcf8",
+                "url": "https://api.github.com/repos/jolicode/JoliTypo/zipball/8539ddb6a9bf0ca710d033a29d1030bbc423fb76",
+                "reference": "8539ddb6a9bf0ca710d033a29d1030bbc423fb76",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "lib-libxml": "*",
-                "org_heigl/hyphenator": ">=2.0.3",
+                "org_heigl/hyphenator": "~2.0.3",
                 "php": ">=5.3.0"
             },
             "conflict": {
@@ -40,7 +40,6 @@
                     "JoliTypo": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -60,7 +59,11 @@
                 "smartquote",
                 "typography"
             ],
-            "time": "2014-06-17 07:52:49"
+            "support": {
+                "source": "https://github.com/jolicode/JoliTypo/tree/v0.1.4",
+                "issues": "https://github.com/jolicode/JoliTypo/issues"
+            },
+            "time": "2014-06-17 13:08:26"
         },
         {
             "name": "org_heigl/hyphenator",
@@ -113,9 +116,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "jolicode/jolitypo": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": [
 
     ],
