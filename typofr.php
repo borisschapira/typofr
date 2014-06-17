@@ -171,6 +171,9 @@ class typofr
         if ($this->options['is_enable_content_fix']) {
             add_filter('the_content', array(&$this, 'fixTextContent'));
         }
+        if ($this->options['is_enable_excerpt_fix']) {
+            add_filter('the_excerpt', array(&$this, 'fixTextContent'));
+        }
 
         if (is_admin()) {
             $this->load_plugin_textdomain();
@@ -204,7 +207,8 @@ class typofr
                     $fixOptions[$key] = $value;
                 }
             }
-            array_push($logs, sprintf('Fixers : %s', implode(',', $fixOptions)));
+            array_push($logs, sprintf('Fixers : %s', implode(',', array_keys($fixOptions))));
+            array_push($logs, '------------');
         }
 
         // Should this function call initialize the fixe ?
@@ -225,9 +229,11 @@ class typofr
             //var_dump($fixer->fix('λ'));
         }
 
-        array_push($logs, sprintf('Original text : %s', $text));
+        array_push($logs, sprintf('Original text : %s', $this->hsc_utf8($text)));
         $fixed = $fixer->fix($text);
-        array_push($logs, sprintf('Fixed text : %s', $fixed));
+        array_push($logs, sprintf('Fixed text : %s', $this->hsc_utf8($fixed)));
+
+        array_push($logs, '------------');
 
         $logs = array_map(
             function ($t) {
