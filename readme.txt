@@ -72,5 +72,5 @@ More information on JoliTypo fixers on the [JoliTypo GitHub Repository](https://
 
 == Thanks ==
 
- * https://github.com/damienalexandre, lead developer of the JoliTypo library
- * https://github.com/darklg for its wordpress skills and input
+* https://github.com/damienalexandre, lead developer of the JoliTypo library
+* https://github.com/darklg for its wordpress skills and input
