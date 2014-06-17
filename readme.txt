@@ -70,8 +70,7 @@ More information on JoliTypo fixers on the [JoliTypo GitHub Repository](https://
 
 * Use of Jolitypo as a typographic library
 
-== Future (aka. TODO) ==
+== Thanks ==
 
- * Make a back-office interface allowing to choose which module applies to which content types
- * Improve plugin to manage other languages
- * Contribute to these other languages support on the JoliTypo repository !
+ * https://github.com/damienalexandre, lead developer of the JoliTypo library
+ * https://github.com/darklg for its wordpress skills and input
