@@ -277,16 +277,6 @@ class typofr
         if($fixOptions['fix_trademark'])
             array_push($fixers, 'Trademark');
 
-        //var_dump($fixers);
-        $fixers = [
-            "Ellipsis",
-            "Dimension",
-            "Dash",
-            "FrenchQuotes",
-            "FrenchNoBreakSpace",
-            "CurlyQuote",
-            "Hyphen",
-            "Trademark"];
         $fixer = new Fixer($fixers);
         $fixer->setLocale('fr_FR'); // Needed by the Hyphen Fixer
 
