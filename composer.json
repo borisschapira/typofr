@@ -7,7 +7,8 @@
         }
     ],
     "require": {
-        "jolicode/jolitypo": "0.1.*"
+        "org_heigl/hyphenator": "dev-master",
+        "jolicode/jolitypo": "0.1.*@dev"
     },
     "repositories": [
         {
