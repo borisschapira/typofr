@@ -1,5 +1,6 @@
 {
-    "name": "Boris/typofr",
+    "name": "borisschapira/typofr",
+    "description": "a plugin for french typography management, powered by JoliTypo",
     "authors": [
         {
             "name": "Boris",
@@ -7,13 +8,17 @@
         }
     ],
     "require": {
-        "org_heigl/hyphenator": "dev-master",
-        "jolicode/jolitypo": "0.1.*@dev"
+        "jolicode/jolitypo": "~0.1.4"        
     },
     "repositories": [
         {
             "type": "vcs",
             "url": "https://github.com/jolicode/JoliTypo.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/borisschapira/Org_Heigl_Hyphenator.git"
         }
-    ]
+    ],
+    "license": "MIT"
 }
