@@ -64,16 +64,16 @@ class typofr_admin extends typofr
      */
     public function __construct()
     {
-        $this->initialize();
-        $this->set_sections();
-        $this->set_fields();
+    	$this->initialize();
+    	$this->set_sections();
+    	$this->set_fields();
 
         // Translation already in WP combined with plugin's name.
-        $this->text_settings = sprintf(__( '%s : Settings'), self::NAME );
+    	$this->text_settings = sprintf(__( '%s : Settings'), self::NAME );
 
-        $this->capability_required = 'manage_options';
-        $this->form_action = 'options.php';
-        $this->page_options = 'options-general.php';
+    	$this->capability_required = 'manage_options';
+    	$this->form_action = 'options.php';
+    	$this->page_options = 'options-general.php';
     }
 
     /*
@@ -86,7 +86,7 @@ class typofr_admin extends typofr
      */
     public function activate()
     {
-        global $wpdb;
+    	global $wpdb;
 
         /*
          * Create or alter the plugin's tables as needed.
@@ -108,21 +108,21 @@ class typofr_admin extends typofr
      */
     public function deactivate()
     {
-        global $wpdb;
+    	global $wpdb;
 
-        $prior_error_setting = $wpdb->show_errors;
-        $wpdb->show_errors = false;
-        $denied = 'command denied to user';
+    	$prior_error_setting = $wpdb->show_errors;
+    	$wpdb->show_errors = false;
+    	$denied = 'command denied to user';
 
-        $wpdb->show_errors = $prior_error_setting;
+    	$wpdb->show_errors = $prior_error_setting;
 
-        $package_id = self::ID;
-        $wpdb->escape_by_ref($package_id);
+    	$package_id = self::ID;
+    	$wpdb->escape_by_ref($package_id);
 
-        $wpdb->query(
-            "DELETE FROM `$wpdb->options`
-				WHERE option_name LIKE '$package_id%'"
-        );
+    	$wpdb->query(
+    		"DELETE FROM `$wpdb->options`
+    		WHERE option_name LIKE '$package_id%'"
+    		);
     }
 
     /*
@@ -150,20 +150,20 @@ class typofr_admin extends typofr
      */
     protected function set_sections()
     {
-        $this->sections = array(
-            'contents' => array(
-                'title' => __("Contents fixing", self::ID),
-                'callback' => 'section_blank'
-            ),
-            'fixes' => array(
-                'title' => __("Fix to apply", self::ID),
-                'callback' => 'section_blank'
-            ),
-            'misc' => array(
-                'title' => __("Miscellaneous Policies", self::ID),
-                'callback' => 'section_blank'
-            ),
-        );
+    	$this->sections = array(
+    		'contents' => array(
+    			'title' => __("Contents fixing", self::ID),
+    			'callback' => 'section_blank'
+    			),
+    		'fixes' => array(
+    			'title' => __("Fix to apply", self::ID),
+    			'callback' => 'section_blank'
+    			),
+    		'misc' => array(
+    			'title' => __("Miscellaneous Policies", self::ID),
+    			'callback' => 'section_blank'
+    			),
+    		);
     }
 
     /**
@@ -193,113 +193,93 @@ class typofr_admin extends typofr
      */
     protected function set_fields()
     {
-        $this->fields = array(
-            'deactivate_deletes_data' => array(
-                'section' => 'misc',
-                'label' => __("Deactivation", self::ID),
-                'text' => __("Should deactivating the plugin remove all of the plugin's data and settings ?", self::ID),
-                'type' => 'bool',
-                'bool0' => __("No, preserve the data for future use.", self::ID),
-                'bool1' => __("Yes, delete the damn data.", self::ID),
-            ),
-            'debug_in_console' => array(
-                'section' => 'misc',
-                'label' => __("Debugging", self::ID),
-                'text' => __("Should the plugin log information in the browser console ?", self::ID),
-                'type' => 'bool',
-                'bool0' => __("No.", self::ID),
-                'bool1' => __("Yes, please.", self::ID),
-            ),
-            'is_enable_title_fix' => array(
-                'section' => 'contents',
-                'label' => __("Title fixing", self::ID),
-                'text' => __("Should the plugin fix all the posts' titles ?", self::ID),
-                'type' => 'bool',
-                'bool0' => __("No, preserve the titles as they are.", self::ID),
-                'bool1' => __("Yes, please, fix them for me.", self::ID),
-            ),
-            'is_enable_content_fix' => array(
-                'section' => 'contents',
-                'label' => __("Content fixing", self::ID),
-                'text' => __("Should the plugin fix all the posts' contents ?", self::ID),
-                'type' => 'bool',
-                'bool0' => __("No, preserve the contents as they are.", self::ID),
-                'bool1' => __("Yes, please, fix them for me.", self::ID),
-            ),
-            'is_enable_excerpt_fix' => array(
-                'section' => 'contents',
-                'label' => __("Excerpt fixing", self::ID),
-                'text' => __("Should the plugin fix all the posts' excerpts ?", self::ID),
-                'type' => 'bool',
-                'bool0' => __("No, preserve the excerpts as they are.", self::ID),
-                'bool1' => __("Yes, please, fix them for me.", self::ID),
-            ),
-            'fix_ellipsis' => array(
-                'section' => 'fixes',
-                'label' => __("Ellipsis", self::ID),
-                'text' => __("Should the plugin replace all occurences of three dots by an ellipsis ?", self::ID),
-                'type' => 'bool',
-                'bool0' => __("No, do not replace.", self::ID),
-                'bool1' => __("Yes, please.", self::ID),
-            ),
-            'fix_dimension' => array(
-                'section' => 'fixes',
-                'label' => __("Dimension", self::ID),
-                'text' => __("Should the plugin detect the letter x between number and replace it by the real math symbol ?", self::ID),
-                'type' => 'bool',
-                'bool0' => __("No, do not replace.", self::ID),
-                'bool1' => __("Yes, please.", self::ID),
-            ),
-            'fix_dash' => array(
-                'section' => 'fixes',
-                'label' => __("Dashes", self::ID),
-                'text' => __("Should the plugin replace '-' by ndash '–' (dates ranges) or double-dash -- by a mdash — ?", self::ID),
-                'type' => 'bool',
-                'bool0' => __("No, do not replace.", self::ID),
-                'bool1' => __("Yes, please.", self::ID),
-            ),
-            'fix_french_quotes' => array(
-                'section' => 'fixes',
-                'label' => __("French quotes", self::ID),
-                'text' => __("Should the plugin convert dumb quotes \" \" to smart French style quotation marks « » and use a no break space ?", self::ID),
-                'type' => 'bool',
-                'bool0' => __("No, do not replace.", self::ID),
-                'bool1' => __("Yes, please.", self::ID),
-            ),
-            'fix_french_no_breakspace' => array(
-                'section' => 'fixes',
-                'label' => __("French No Break Space", self::ID),
-                'text' => __("Should the plugin replace some classic spaces by non breaking spaces following the French typographic code ?", self::ID),
-                'type' => 'bool',
-                'bool0' => __("No, do not replace.", self::ID),
-                'bool1' => __("Yes, please.", self::ID),
-            ),
-            'fix_curly_quote' => array(
-                'section' => 'fixes',
-                'label' => __("CurlyQuote", self::ID),
-                'text' => __("Should the plugin replace straight quotes ' by curly one's ’ ?", self::ID),
-                'type' => 'bool',
-                'bool0' => __("No, do not replace.", self::ID),
-                'bool1' => __("Yes, please.", self::ID),
-            ),
-            'fix_hyphen' => array(
-                'section' => 'fixes',
-                'label' => __("Automatic hyphenation", self::ID),
-                'text' => __("Should the plugin enable word hyphenation ?", self::ID),
-                'type' => 'bool',
-                'bool0' => __("No, do not replace.", self::ID),
-                'bool1' => __("Yes, please.", self::ID),
-            ),
-            'fix_trademark' => array(
-                'section' => 'fixes',
-                'label' => __("Content fixing", self::ID),
-                'text' => __("Should the plugin replace (r), (c) and (TM) by the right symbols ?", self::ID),
-                'type' => 'bool',
-                'bool0' => __("No, do not replace.", self::ID),
-                'bool1' => __("Yes, please.", self::ID),
-            )
-        );
-    }
+    	$this->fields = array(
+    		'deactivate_deletes_data' => array(
+    			'section' => 'misc',
+    			'label' => __("Deactivation", self::ID),
+    			'text' => __("Remove all of the plugin's data and settings at desactivation", self::ID),
+    			'type' => 'bool'
+    			),
+    		'debug_in_console' => array(
+    			'section' => 'misc',
+    			'label' => __("Debugging", self::ID),
+    			'text' => __("Log information into the browser console (display Developper Tools to show the logs)", self::ID),
+    			'type' => 'bool'
+    			),
+    		'is_enable_title_fix' => array(
+    			'section' => 'contents',
+    			'label' => __("Titles", self::ID),
+    			'text' => __("Fix all the posts' titles", self::ID),
+    			'type' => 'bool'
+    			),
+    		'is_enable_content_fix' => array(
+    			'section' => 'contents',
+    			'label' => __("Contents", self::ID),
+    			'text' => __("Fix all the posts' contents", self::ID),
+    			'type' => 'bool'
+    			),
+    		'is_enable_excerpt_fix' => array(
+    			'section' => 'contents',
+    			'label' => __("Excerpts", self::ID),
+    			'text' => __("Fix all the posts' excerpts", self::ID),
+    			'type' => 'bool'
+    			),
+    		'is_enable_meta_fix' => array(
+    			'section' => 'contents',
+    			'label' => __("Meta Datas (Beta)", self::ID),
+    			'text' => __("Fix all the posts' meta datas", self::ID),
+    			'type' => 'bool'
+    			),
+    		'fix_ellipsis' => array(
+    			'section' => 'fixes',
+    			'label' => __("Ellipsis", self::ID),
+    			'text' => __("Replace all occurences of three dots by an ellipsis", self::ID),
+    			'type' => 'bool'
+    			),
+    		'fix_dimension' => array(
+    			'section' => 'fixes',
+    			'label' => __("Dimension", self::ID),
+    			'text' => __("Detect the letter x between number and replace it by the real math symbol", self::ID),
+    			'type' => 'bool'
+    			),
+    		'fix_dash' => array(
+    			'section' => 'fixes',
+    			'label' => __("Dashes", self::ID),
+    			'text' => __("Replace '-' by ndash '–' (dates ranges) or double-dash -- by a mdash —", self::ID),
+    			'type' => 'bool'
+    			),
+    		'fix_french_quotes' => array(
+    			'section' => 'fixes',
+    			'label' => __("French quotes", self::ID),
+    			'text' => __("Replace dumb quotes \" \" by smart French style quotation marks « » and use a no break space", self::ID),
+    			'type' => 'bool'
+    			),
+    		'fix_french_no_breakspace' => array(
+    			'section' => 'fixes',
+    			'label' => __("French No Break Space", self::ID),
+    			'text' => __("Replace some classic spaces by non breaking spaces following the French typographic code", self::ID),
+    			'type' => 'bool'
+    			),
+    		'fix_curly_quote' => array(
+    			'section' => 'fixes',
+    			'label' => __("CurlyQuote", self::ID),
+    			'text' => __("Replace straight quotes ' by curly one's ’", self::ID),
+    			'type' => 'bool'
+    			),
+    		'fix_hyphen' => array(
+    			'section' => 'fixes',
+    			'label' => __("Automatic hyphenation", self::ID),
+    			'text' => __("Enable word hyphenation", self::ID),
+    			'type' => 'bool'
+    			),
+    		'fix_trademark' => array(
+    			'section' => 'fixes',
+    			'label' => __("Contents", self::ID),
+    			'text' => __("Replace (r), (c) and (TM) by the right symbols", self::ID),
+    			'type' => 'bool'
+    			)
+    		);
+}
 
     /**
      * A filter to add a "Settings" link in this plugin's description
@@ -314,11 +294,11 @@ class typofr_admin extends typofr
     public function plugin_action_links($links)
     {
         // Translation already in WP.
-        $links[] = '<a href="' . $this->hsc_utf8($this->page_options)
-            . '?page=' . self::ID . '">'
-            . $this->hsc_utf8(__('Settings')) . '</a>';
+    	$links[] = '<a href="' . $this->hsc_utf8($this->page_options)
+    	. '?page=' . self::ID . '">'
+    	. $this->hsc_utf8(__('Settings')) . '</a>';
 
-        return $links;
+    	return $links;
     }
 
     /**
@@ -329,14 +309,14 @@ class typofr_admin extends typofr
      */
     public function admin_menu()
     {
-        add_submenu_page(
-            $this->page_options,
-            $this->text_settings,
-            self::NAME,
-            $this->capability_required,
-            self::ID,
-            array(&$this, 'page_settings')
-        );
+    	add_submenu_page(
+    		$this->page_options,
+    		$this->text_settings,
+    		self::NAME,
+    		$this->capability_required,
+    		self::ID,
+    		array(&$this, 'page_settings')
+    		);
     }
 
     /**
@@ -348,32 +328,32 @@ class typofr_admin extends typofr
      */
     public function admin_init()
     {
-        register_setting(
-            $this->option_name,
-            $this->option_name,
-            array(&$this, 'validate')
-        );
+    	register_setting(
+    		$this->option_name,
+    		$this->option_name,
+    		array(&$this, 'validate')
+    		);
 
         // Dynamically declares each section using the info in $sections.
-        foreach ($this->sections as $id => $section) {
-            add_settings_section(
-                self::ID . '-' . $id,
-                $this->hsc_utf8($section['title']),
-                array(&$this, $section['callback']),
-                self::ID
-            );
-        }
+    	foreach ($this->sections as $id => $section) {
+    		add_settings_section(
+    			self::ID . '-' . $id,
+    			$this->hsc_utf8($section['title']),
+    			array(&$this, $section['callback']),
+    			self::ID
+    			);
+    	}
 
         // Dynamically declares each field using the info in $fields.
-        foreach ($this->fields as $id => $field) {
-            add_settings_field(
-                $id,
-                $this->hsc_utf8($field['label']),
-                array(&$this, $id),
-                self::ID,
-                self::ID . '-' . $field['section']
-            );
-        }
+    	foreach ($this->fields as $id => $field) {
+    		add_settings_field(
+    			$id,
+    			$this->hsc_utf8($field['label']),
+    			array(&$this, $id),
+    			self::ID,
+    			self::ID . '-' . $field['section']
+    			);
+    	}
     }
 
     /**
@@ -382,12 +362,14 @@ class typofr_admin extends typofr
      */
     public function page_settings()
     {
-        echo '<h2>' . $this->hsc_utf8($this->text_settings) . '</h2>';
-        echo '<form action="' . $this->hsc_utf8($this->form_action) . '" method="post">' . "\n";
-        settings_fields($this->option_name);
-        do_settings_sections(self::ID);
-        submit_button();
-        echo '</form>';
+    	echo '<div class="wrap">';
+    	echo '<h2>' . $this->hsc_utf8($this->text_settings) . '</h2>';
+    	echo '<form action="' . $this->hsc_utf8($this->form_action) . '" method="post">' . "\n";
+    	settings_fields($this->option_name);
+    	do_settings_sections(self::ID);
+    	submit_button();
+    	echo '</form></div>';
+
     }
 
     /**
@@ -404,9 +386,9 @@ class typofr_admin extends typofr
      */
     public function section_login()
     {
-        echo '<p>';
-        echo $this->hsc_utf8(__("An explanation of this section...", self::ID));
-        echo '</p>';
+    	echo '<p>';
+    	echo $this->hsc_utf8(__("An explanation of this section...", self::ID));
+    	echo '</p>';
     }
 
     /**
@@ -426,20 +408,23 @@ class typofr_admin extends typofr
      */
     public function __call($name, $params)
     {
-        if (empty($this->fields[$name]['type'])) {
-            return;
-        }
-        switch ($this->fields[$name]['type']) {
-            case 'bool':
-                $this->input_radio($name);
-                break;
-            case 'int':
-                $this->input_int($name);
-                break;
-            case 'string':
-                $this->input_string($name);
-                break;
-        }
+    	if (empty($this->fields[$name]['type'])) {
+    		return;
+    	}
+    	switch ($this->fields[$name]['type']) {
+    		case 'bool':
+    		$this->input_checkbox($name);
+    		break;
+    		case 'choice':
+    		$this->input_radio($name);
+    		break;
+    		case 'int':
+    		$this->input_int($name);
+    		break;
+    		case 'string':
+    		$this->input_string($name);
+    		break;
+    	}
     }
 
     /**
@@ -451,18 +436,37 @@ class typofr_admin extends typofr
      */
     protected function input_radio($name)
     {
-        echo $this->hsc_utf8($this->fields[$name]['text']) . '<br/>';
-        echo '<input type="radio" value="0" name="'
-            . $this->hsc_utf8($this->option_name)
-            . '[' . $this->hsc_utf8($name) . ']"'
-            . ($this->options[$name] ? '' : ' checked="checked"') . ' /> ';
-        echo $this->hsc_utf8($this->fields[$name]['bool0']);
-        echo '<br/>';
-        echo '<input type="radio" value="1" name="'
-            . $this->hsc_utf8($this->option_name)
-            . '[' . $this->hsc_utf8($name) . ']"'
-            . ($this->options[$name] ? ' checked="checked"' : '') . ' /> ';
-        echo $this->hsc_utf8($this->fields[$name]['bool1']);
+    	echo '<fieldset><legend class="screen-reader-text"><span>' . $this->hsc_utf8($this->fields[$name]['label']) . '</span></legend>';
+    	echo '<p class="description">' . $this->hsc_utf8($this->fields[$name]['text']) . '</p>';
+    	echo '<label title="0"><input type="radio" value="0" name="'
+    	. $this->hsc_utf8($this->option_name)
+    	. '[' . $this->hsc_utf8($name) . ']"'
+    	. ($this->options[$name] ? '' : ' checked="checked"') . ' /> ';
+    	echo '<span>' . $this->hsc_utf8($this->fields[$name]['bool0']) . '</span></label>';
+    	echo '<br>';
+    	echo '<label title="1"><input type="radio" value="1" name="'
+    	. $this->hsc_utf8($this->option_name)
+    	. '[' . $this->hsc_utf8($name) . ']"'
+    	. ($this->options[$name] ? ' checked="checked"' : '') . ' /> ';
+    	echo '<span>' . $this->hsc_utf8($this->fields[$name]['bool1']) . '</span></label>';
+    	echo '</fieldset>';
+    }
+
+    /**
+     * Renders the checkbox inputs
+     *
+     * @param $name
+     *
+     * @return void
+     */
+    protected function input_checkbox($name)
+    {
+    	$html = '<input type="checkbox" id="' . $name . '" name="'
+    	. $this->hsc_utf8($this->option_name)
+    	. '[' . $this->hsc_utf8($name) . ']" value=1' . checked( 1, $this->options[$name], false ) . '/>';
+    	$html .= '<label for="' . $this->hsc_utf8($name) . '">' . $this->hsc_utf8($this->fields[$name]['text']) . '</label>';
+
+    	echo $html;
     }
 
     /**
@@ -474,15 +478,15 @@ class typofr_admin extends typofr
      */
     protected function input_int($name)
     {
-        echo '<input type="text" size="3" name="'
-            . $this->hsc_utf8($this->option_name)
-            . '[' . $this->hsc_utf8($name) . ']"'
-            . ' value="' . $this->hsc_utf8($this->options[$name]) . '" /> ';
-        echo $this->hsc_utf8(
-            $this->fields[$name]['text']
-            . ' ' . __('Default:', self::ID) . ' '
-            . $this->options_default[$name] . '.'
-        );
+    	echo '<input type="text" size="3" name="'
+    	. $this->hsc_utf8($this->option_name)
+    	. '[' . $this->hsc_utf8($name) . ']"'
+    	. ' value="' . $this->hsc_utf8($this->options[$name]) . '" /> ';
+    	echo $this->hsc_utf8(
+    		$this->fields[$name]['text']
+    		. ' ' . __('Default:', self::ID) . ' '
+    		. $this->options_default[$name] . '.'
+    		);
     }
 
     /**
@@ -494,16 +498,16 @@ class typofr_admin extends typofr
      */
     protected function input_string($name)
     {
-        echo '<input type="text" size="75" name="'
-            . $this->hsc_utf8($this->option_name)
-            . '[' . $this->hsc_utf8($name) . ']"'
-            . ' value="' . $this->hsc_utf8($this->options[$name]) . '" /> ';
-        echo '<br />';
-        echo $this->hsc_utf8(
-            $this->fields[$name]['text']
-            . ' ' . __('Default:', self::ID) . ' '
-            . $this->options_default[$name] . '.'
-        );
+    	echo '<input type="text" size="75" name="'
+    	. $this->hsc_utf8($this->option_name)
+    	. '[' . $this->hsc_utf8($name) . ']"'
+    	. ' value="' . $this->hsc_utf8($this->options[$name]) . '" /> ';
+    	echo '<br />';
+    	echo $this->hsc_utf8(
+    		$this->fields[$name]['text']
+    		. ' ' . __('Default:', self::ID) . ' '
+    		. $this->options_default[$name] . '.'
+    		);
     }
 
     /**
@@ -519,85 +523,79 @@ class typofr_admin extends typofr
      */
     public function validate($in)
     {
-        $out = $this->options_default;
-        if (!is_array($in)) {
-            // Not translating this since only hackers will see it.
-            add_settings_error(
-                $this->option_name,
-                $this->hsc_utf8($this->option_name),
-                'Input must be an array.'
-            );
+    	if (!is_array($in)) {
+    		add_settings_error(
+    			$this->option_name,
+    			$this->hsc_utf8($this->option_name),
+    			__('You need to activate something if you want to use the plugin !', self::ID)
+    			);
 
-            return $out;
-        }
+    		return $out;
+    	}
 
-        $gt_format = __("must be >= '%s',", self::ID);
-        $default = __("so we used the default value instead.", self::ID);
+    	$gt_format = __("must be >= '%s',", self::ID);
+    	$default = __("so we used the default value instead.", self::ID);
 
         // Dynamically validate each field using the info in $fields.
-        foreach ($this->fields as $name => $field) {
-            if (!array_key_exists($name, $in)) {
-                continue;
-            }
+    	foreach ($this->fields as $name => $field) {
+    		if (!array_key_exists($name, $in)) {
+    			if ($field['type'] == 'bool') {
+    				$out[$name] = 0;
+    			}
+    			continue;
+    		}
 
-            if (!is_scalar($in[$name])) {
+    		if (!is_scalar($in[$name])) {
                 // Not translating this since only hackers will see it.
-                add_settings_error(
-                    $this->option_name,
-                    $this->hsc_utf8($name),
-                    $this->hsc_utf8("'" . $field['label'])
-                    . "' was not a scalar, $default"
-                );
-                continue;
-            }
+    			add_settings_error(
+    				$this->option_name,
+    				$this->hsc_utf8($name),
+    				$this->hsc_utf8("'" . $field['label'])
+    				. "' was not a scalar, $default"
+    				);
+    			continue;
+    		}
 
-            switch ($field['type']) {
-                case 'bool':
-                    if ($in[$name] != 0 && $in[$name] != 1) {
-                        // Not translating this since only hackers will see it.
-                        add_settings_error(
-                            $this->option_name,
-                            $this->hsc_utf8($name),
-                            $this->hsc_utf8(
-                                "'" . $field['label']
-                                . "' must be '0' or '1', $default"
-                            )
-                        );
-                        continue 2;
-                    }
-                    break;
-                case 'int':
-                    if (!ctype_digit($in[$name])) {
-                        add_settings_error(
-                            $this->option_name,
-                            $this->hsc_utf8($name),
-                            $this->hsc_utf8(
-                                "'" . $field['label'] . "' "
-                                . __("must be an integer,", self::ID)
-                                . ' ' . $default
-                            )
-                        );
-                        continue 2;
-                    }
-                    if (array_key_exists('greater_than', $field)
-                        && $in[$name] < $field['greater_than']
-                    ) {
-                        add_settings_error(
-                            $this->option_name,
-                            $this->hsc_utf8($name),
-                            $this->hsc_utf8(
-                                "'" . $field['label'] . "' "
-                                . sprintf($gt_format, $field['greater_than'])
-                                . ' ' . $default
-                            )
-                        );
-                        continue 2;
-                    }
-                    break;
-            }
-            $out[$name] = $in[$name];
-        }
+    		switch ($field['type']) {
+    			case 'bool':
+    			if (isset( $in[$name] ) && 1 == $in[$name] ) {
+    				$out[$name] = 1;
+    			} else {
+    				$out[$name] = 0;
+    			}
+    			continue 2;
+    			break;
+    			case 'int':
+    			if (!ctype_digit($in[$name])) {
+    				add_settings_error(
+    					$this->option_name,
+    					$this->hsc_utf8($name),
+    					$this->hsc_utf8(
+    						"'" . $field['label'] . "' "
+    						. __("must be an integer,", self::ID)
+    						. ' ' . $default
+    						)
+    					);
+    				continue 2;
+    			}
+    			if (array_key_exists('greater_than', $field) && $in[$name] < $field['greater_than']) {
+    				add_settings_error(
+    					$this->option_name,
+    					$this->hsc_utf8($name),
+    					$this->hsc_utf8(
+    						"'" . $field['label'] . "' "
+    						. sprintf($gt_format, $field['greater_than'])
+    						. ' ' . $default
+    						)
+    					);
+    				continue 2;
+    			}
+    			break;
+    		}
+    		$out[$name] = $in[$name];
+    	}
 
-        return $out;
+    	unset($in);
+    	return $out;
     }
 }

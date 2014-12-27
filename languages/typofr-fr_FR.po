@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-06-17 11:18+0100\n"
+"PO-Revision-Date: 2014-12-27 23:03+0100\n"
 "Last-Translator: Boris Schapira <borisschapira@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr_FR\n"
@@ -35,93 +35,59 @@ msgid "Deactivation"
 msgstr "Désactivation"
 
 #: admin.php:200
-msgid ""
-"Should deactivating the plugin remove all of the plugin's data and settings ?"
-msgstr ""
-"Souhaitez-vous que tous les paramètres soient supprimés lors de la "
-"désactivation du plugin ?"
-
-#: admin.php:202
-msgid "No, preserve the data for future use."
-msgstr "Non, conservez les paramètres pour une utilisation future."
-
-#: admin.php:203
-msgid "Yes, delete the damn data."
-msgstr "Oui, supprimez-les tous."
+msgid "Remove all of the plugin's data and settings at desactivation"
+msgstr "Supprimer tous les paramètres lors de la désactivation du plugin"
 
 #: admin.php:207
 msgid "Debugging"
-msgstr "Debogage"
+msgstr "Débogage"
 
 #: admin.php:208
-msgid "Should the plugin log information in the browser console ?"
-msgstr ""
-"Souhaitez-vous que le plugin loggue des informations dans la console du "
-"navigateur ?"
-
-#: admin.php:210
-msgid "No."
-msgstr "Non."
-
-#: admin.php:211 admin.php:243 admin.php:251 admin.php:259 admin.php:267
-#: admin.php:275 admin.php:283 admin.php:291 admin.php:299
-msgid "Yes, please."
-msgstr "Oui, merci."
+msgid ""
+"Log information into the browser console (display Developper Tools to show "
+"the logs)"
+msgstr "Ecrire des logs dans la console du navigateur"
 
 #: admin.php:215
-msgid "Title fixing"
-msgstr "Correction des titres"
+msgid "Titles"
+msgstr "Titres"
 
 #: admin.php:216
-msgid "Should the plugin fix all the posts' titles ?"
-msgstr "Souhaitez-vous que le plugin corrige tous les titres"
+msgid "Fix all the posts' titles"
+msgstr "Corriger tous les titres"
 
-#: admin.php:218
-msgid "No, preserve the titles as they are."
-msgstr "Non, gardez les titres comme ils sont."
-
-#: admin.php:219 admin.php:227 admin.php:235
-msgid "Yes, please, fix them for me."
-msgstr "Oui, merci de les corriger pour moi."
-
-#: admin.php:223 admin.php:295
-msgid "Content fixing"
-msgstr "Correction des contenus"
+#: admin.php:230 admin.php:223 admin.php:295
+msgid "Contents"
+msgstr "Contenus"
 
 #: admin.php:224
-msgid "Should the plugin fix all the posts' contents ?"
-msgstr "Souhaitez-vous que le plugin corrige tous les contenus ?"
+msgid "Fix all the posts' contents"
+msgstr "Corriger tous les contenus"
 
-#: admin.php:226
-msgid "No, preserve the contents as they are."
-msgstr "Non, gardez les contenus comme ils sont."
+msgid "Meta Datas (Beta)"
+msgstr "Meta Données (Beta)"
+
+msgid "You need to activate something if you want to use the plugin !"
+msgstr "Vous devez choisir des options pour utiliser le plugin !"
+
+msgid "Fix all the posts' meta datas"
+msgstr "Corriger toutes les meta données"
 
 #: admin.php:231
-msgid "Excerpt fixing"
-msgstr "Correction des extraits"
+msgid "Excerpts"
+msgstr "Extraits"
 
 #: admin.php:232
-msgid "Should the plugin fix all the posts' excerpts ?"
-msgstr "Souhaitez-vous que le plugin corrige tous les extraits ?"
-
-#: admin.php:234
-msgid "No, preserve the excerpts as they are."
-msgstr "Non, gardez les extraits comme ils sont."
+msgid "Fix all the posts' excerpts"
+msgstr "Corriger tous les extraits"
 
 #: admin.php:239
 msgid "Ellipsis"
 msgstr "Ellipse"
 
 #: admin.php:240
-msgid "Should the plugin replace all occurences of three dots by an ellipsis ?"
-msgstr ""
-"Souhaitez-vous que le plugin remplace toutes occurences de trois points par "
-"une ellipse ?"
-
-#: admin.php:242 admin.php:250 admin.php:258 admin.php:266 admin.php:274
-#: admin.php:282 admin.php:290 admin.php:298
-msgid "No, do not replace."
-msgstr "Non, ne pas remplacer."
+msgid "Replace all occurences of three dots by an ellipsis"
+msgstr "Remplacer toutes les occurences de trois points par une ellipse"
 
 #: admin.php:247
 msgid "Dimension"
@@ -129,23 +95,20 @@ msgstr "Dimension"
 
 #: admin.php:248
 msgid ""
-"Should the plugin detect the letter x between number and replace it by the "
-"real math symbol ?"
+"Detect the letter x between number and replace it by the real math symbol"
 msgstr ""
-"Souhaitez-vous que le plugin détecte la lettre x entre des nombres et la "
-"remplace par le véritable symbole mathématique ?"
+"Détecter la lettre x entre des nombres et la remplacer par le véritable "
+"symbole mathématique"
 
 #: admin.php:255
 msgid "Dashes"
 msgstr "Tiret"
 
 #: admin.php:256
-msgid ""
-"Should the plugin replace '-' by ndash '–' (dates ranges) or double-dash -- "
-"by a mdash — ?"
+msgid "Replace '-' by ndash '–' (dates ranges) or double-dash -- by a mdash —"
 msgstr ""
-"Souhaitez-vous que le plugin remplace le tiret simple par un tiret cadratin "
-"ou demi-cadratin quand cela est nécessaire (plages de dates, inclusions...) ?"
+"Remplacer le tiret simple par un tiret cadratin ou demi-cadratin quand cela "
+"est nécessaire (plages de dates, inclusions...)"
 
 #: admin.php:263
 msgid "French quotes"
@@ -153,11 +116,11 @@ msgstr "Guillemets à la française"
 
 #: admin.php:264
 msgid ""
-"Should the plugin convert dumb quotes \" \" to smart French style quotation "
-"marks « » and use a no break space ?"
+"Replace dumb quotes \" \" by smart French style quotation marks « » and use "
+"a no break space"
 msgstr ""
-"Souhaitez-vous que le plugin remplace les guillemets \" \" par la notation "
-"française « » en utilisant les espaces incésables nécéssaires ?"
+"Remplacer les guillemets \" \" par la notation française « » en utilisant "
+"les espaces incésables nécéssaires"
 
 #: admin.php:271
 msgid "French No Break Space"
@@ -165,38 +128,35 @@ msgstr "Espaces insécables"
 
 #: admin.php:272
 msgid ""
-"Should the plugin replace some classic spaces by non breaking spaces "
-"following the French typographic code ?"
+"Replace some classic spaces by non breaking spaces following the French "
+"typographic code"
 msgstr ""
-"Souhaitez-vous que le plugin remplace certains espaces classiques par des "
-"espaces insécables, en appliquant les règles de typographie à la française ?"
+"Remplacer certains espaces classiques par des espaces insécables, en "
+"appliquant les règles de typographie à la française"
 
 #: admin.php:279
 msgid "CurlyQuote"
 msgstr "Apostrophe"
 
 #: admin.php:280
-msgid "Should the plugin replace straight quotes ' by curly one's ’ ?"
+msgid "Replace straight quotes ' by curly one's ’"
 msgstr ""
-"Souhaitez-vous que le plugin remplace l'apostophe droite par une apostrophe "
-"typographique là où cela sera nécessaire ?"
+"Remplacer l'apostophe droite par une apostrophe typographique là où cela "
+"sera nécessaire"
 
 #: admin.php:287
 msgid "Automatic hyphenation"
 msgstr "Trait d'union"
 
 #: admin.php:288
-msgid "Should the plugin enable word hyphenation ?"
+msgid "Enable word hyphenation"
 msgstr ""
-"Souhaitez-vous que le plugin améliore la détermination de l'endroit où les "
-"mots seront coupées en deux (avec un tiret en fin de ligne indiquant l'unité "
-"du mot) ?"
+"Améliorer la détermination de l'endroit où les mots seront coupées en deux "
+"(avec un tiret en fin de ligne indiquant l'unité du mot)"
 
 #: admin.php:296
-msgid "Should the plugin replace (r), (c) and (TM) by the right symbols ?"
-msgstr ""
-"Souhaitez-vous que le plugin remplace (r), (c), et (TM) par les symboles "
-"appropriés ?"
+msgid "Replace (r), (c) and (TM) by the right symbols"
+msgstr "Remplacer (r), (c), et (TM) par les symboles appropriés"
 
 #: admin.php:319
 msgid "Settings"
@@ -222,26 +182,8 @@ msgstr "donc nous allons plutôt utiliser la valeur par défaut."
 msgid "must be an integer,"
 msgstr "doit être un entier."
 
-#. Plugin Name of the plugin/theme
-msgid "TypoFR"
-msgstr "TypoFR"
-
-#. Plugin URI of the plugin/theme
-msgid "https://github.com/borisschapira/typofr"
-msgstr ""
-"un plugin pour l'implémentation des règles de typographie à la française, "
-"utilisant la librairie JoliTypo"
-
 #. Description of the plugin/theme
 msgid "a plugin for french typography management, powered by JoliTypo"
 msgstr ""
 "un plugin pour l'implémentation des règles de typographie à la française, "
 "utilisant la librairie JoliTypo."
-
-#. Author of the plugin/theme
-msgid "Boris Schapira"
-msgstr "Boris Schapira"
-
-#. Author URI of the plugin/theme
-msgid "http://borisschapira.com"
-msgstr "http://borisschapira.com"

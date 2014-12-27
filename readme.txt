@@ -2,7 +2,7 @@
 Contributors: boris.schapira
 Tags: typography
 Tested up to: 3.9
-Stable tag: 0.7
+Stable tag: 0.9
 Requires at least: 3.0
 License: MIT
 License URI: https://raw.githubusercontent.com/borisschapira/typofr/master/LICENSE
@@ -46,6 +46,16 @@ More information on JoliTypo fixers on the [JoliTypo GitHub Repository](https://
 2. What does this plugin ? See an example with screenshot-2.png
 
 == Changelog ==
+
+= 0.9 =
+
+* Better HTML on the plugin's options page (https://github.com/borisschapira/typofr/issues/7)
+* Add beta feature (default: off) : meta keywords fixing
+
+= 0.8 =
+
+* Update Jolitypo version
+* Clean some unecessary files
 
 = 0.7 =
 
