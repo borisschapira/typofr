@@ -83,6 +83,7 @@ class typofr
         'is_enable_title_fix' => 1,
         'is_enable_content_fix' => 1,
         'is_enable_excerpt_fix' => 1,
+        'is_enable_comment_fix' => 0,
         'is_enable_meta_fix' => 0,
         'fix_ellipsis' => 1,
         'fix_dimension' => 1,
@@ -177,6 +178,9 @@ class typofr
         }
         if ($this->options['is_enable_meta_fix']) {
             add_filter('the_meta', array(&$this, 'fixTextContent'));
+        }
+        if ($this->options['is_enable_comment_fix']) {
+            add_filter('comment_text', array(&$this, 'fixTextContent'));
         }
 
         if (is_admin()) {
@@ -329,4 +333,3 @@ class typofr
         $this->options = array_merge($this->options_default, $options);
     }
 }
-

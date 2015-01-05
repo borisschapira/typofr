@@ -224,6 +224,12 @@ class typofr_admin extends typofr
     			'text' => __("Fix all the posts' excerpts", self::ID),
     			'type' => 'bool'
     			),
+            'is_enable_comment_fix' => array(
+                'section' => 'contents',
+                'label' => __("Comments", self::ID),
+                'text' => __("Fix all the comments (content only)", self::ID),
+                'type' => 'bool'
+                ),
     		'is_enable_meta_fix' => array(
     			'section' => 'contents',
     			'label' => __("Meta Datas (Beta)", self::ID),

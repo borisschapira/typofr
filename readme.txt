@@ -1,8 +1,8 @@
 === typofr ===
 Contributors: boris.schapira
 Tags: typography
-Tested up to: 3.9
-Stable tag: 0.9
+Tested up to: 4.1
+Stable tag: 0.10
 Requires at least: 3.0
 License: MIT
 License URI: https://raw.githubusercontent.com/borisschapira/typofr/master/LICENSE
@@ -46,6 +46,10 @@ More information on JoliTypo fixers on the [JoliTypo GitHub Repository](https://
 2. What does this plugin ? See an example with screenshot-2.png
 
 == Changelog ==
+
+= 0.10 =
+
+* Abilitiy to fix the content of the comments (desactivated by default)
 
 = 0.9 =
 
