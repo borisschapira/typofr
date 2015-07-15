@@ -1,8 +1,8 @@
 === typofr ===
 Contributors: boris.schapira
 Tags: typography
-Tested up to: 4.1
-Stable tag: 0.10
+Tested up to: 4.2.2
+Stable tag: 0.11
 Requires at least: 3.0
 License: MIT
 License URI: https://raw.githubusercontent.com/borisschapira/typofr/master/LICENSE
@@ -46,6 +46,10 @@ More information on JoliTypo fixers on the [JoliTypo GitHub Repository](https://
 2. What does this plugin ? See an example with screenshot-2.png
 
 == Changelog ==
+
+= 0.11 =
+
+* Detects « » and insert or replace spaces by non-breaking spaces
 
 = 0.10 =
 

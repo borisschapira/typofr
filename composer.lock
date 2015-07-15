@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "20cc2dfff16ef3144c63fdb9c130361b",
+    "hash": "c409ab13bd3c19bff52997078cf329e4",
     "packages": [
         {
             "name": "Org_Heigl/Hyphenator",
@@ -56,16 +56,16 @@
         },
         {
             "name": "jolicode/jolitypo",
-            "version": "v0.1.4",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jolicode/JoliTypo.git",
-                "reference": "8539ddb6a9bf0ca710d033a29d1030bbc423fb76"
+                "reference": "a6bd9bb3b1fecb0ab7662d86d666f88c7e5e2ba7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jolicode/JoliTypo/zipball/8539ddb6a9bf0ca710d033a29d1030bbc423fb76",
-                "reference": "8539ddb6a9bf0ca710d033a29d1030bbc423fb76",
+                "url": "https://api.github.com/repos/jolicode/JoliTypo/zipball/a6bd9bb3b1fecb0ab7662d86d666f88c7e5e2ba7",
+                "reference": "a6bd9bb3b1fecb0ab7662d86d666f88c7e5e2ba7",
                 "shasum": ""
             },
             "require": {
@@ -108,10 +108,10 @@
                 "typography"
             ],
             "support": {
-                "source": "https://github.com/jolicode/JoliTypo/tree/v0.1.4",
+                "source": "https://github.com/jolicode/JoliTypo/tree/v0.2.0",
                 "issues": "https://github.com/jolicode/JoliTypo/issues"
             },
-            "time": "2014-06-17 13:08:26"
+            "time": "2015-07-13 15:05:16"
         }
     ],
     "packages-dev": [],

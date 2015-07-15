@@ -8,16 +8,12 @@
         }
     ],
     "require": {
-        "jolicode/jolitypo": "~0.1.4"        
+        "jolicode/jolitypo": "~0.2.0"        
     },
     "repositories": [
         {
             "type": "vcs",
             "url": "https://github.com/jolicode/JoliTypo.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/borisschapira/Org_Heigl_Hyphenator.git"
         }
     ],
     "license": "MIT"
