@@ -1,92 +1,58 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "c409ab13bd3c19bff52997078cf329e4",
+    "content-hash": "9cc3a8d90ad6a7afe44e1bb7e7e14951",
     "packages": [
         {
-            "name": "Org_Heigl/Hyphenator",
-            "version": "v2.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/borisschapira/Org_Heigl_Hyphenator.git",
-                "reference": "a77d9395dac8ff221c003140f55f2b7f43c764df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/borisschapira/Org_Heigl_Hyphenator/zipball/a77d9395dac8ff221c003140f55f2b7f43c764df",
-                "reference": "a77d9395dac8ff221c003140f55f2b7f43c764df",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Org\\Heigl\\Hyphenator": "src"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andreas Heigl",
-                    "email": "andreas@heigl.org",
-                    "homepage": "http://andreas.heigl.org",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Word-Hyphenation for PHP",
-            "homepage": "http://github.com/heiglandreas/Org_Heigl_Hyphenator",
-            "keywords": [
-                "hyphenate",
-                "hyphenation"
-            ],
-            "support": {
-                "source": "https://github.com/borisschapira/Org_Heigl_Hyphenator/tree/v2.0.4"
-            },
-            "time": "2014-06-10 12:09:38"
-        },
-        {
             "name": "jolicode/jolitypo",
-            "version": "v0.2.0",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jolicode/JoliTypo.git",
-                "reference": "a6bd9bb3b1fecb0ab7662d86d666f88c7e5e2ba7"
+                "reference": "31da15657ec27837d014740a0a0ab281c58959c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jolicode/JoliTypo/zipball/a6bd9bb3b1fecb0ab7662d86d666f88c7e5e2ba7",
-                "reference": "a6bd9bb3b1fecb0ab7662d86d666f88c7e5e2ba7",
+                "url": "https://api.github.com/repos/jolicode/JoliTypo/zipball/31da15657ec27837d014740a0a0ab281c58959c0",
+                "reference": "31da15657ec27837d014740a0a0ab281c58959c0",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "lib-libxml": "*",
                 "org_heigl/hyphenator": "~2.0.3",
-                "php": ">=5.3.0"
+                "php": ">=7.0.0"
             },
             "conflict": {
                 "ext-apc": "3.1.11"
             },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1.x-dev"
-                }
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2",
+                "symfony/framework-bundle": "^2.3|^3.0|^4.0",
+                "symfony/phpunit-bridge": "^4"
             },
+            "type": "library",
             "autoload": {
                 "psr-0": {
                     "JoliTypo": "src/"
+                },
+                "psr-4": {
+                    "JoliTypo\\": ""
                 }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/simple-phpunit -c phpunit.xml.dist"
+                ],
+                "testci": [
+                    "vendor/bin/simple-phpunit -c phpunit.xml.dist --coverage-text"
+                ],
+                "cs": [
+                    "vendor/bin/php-cs-fixer fix"
+                ]
             },
             "license": [
                 "MIT"
@@ -95,7 +61,7 @@
                 {
                     "name": "Damien Alexandre",
                     "email": "dalexandre@jolicode.com",
-                    "homepage": "http://damienalexandre.fr/"
+                    "homepage": "https://damienalexandre.fr/"
                 }
             ],
             "description": "Microtypography fixer for the web.",
@@ -108,10 +74,58 @@
                 "typography"
             ],
             "support": {
-                "source": "https://github.com/jolicode/JoliTypo/tree/v0.2.0",
+                "source": "https://github.com/jolicode/JoliTypo/tree/1.0.5",
                 "issues": "https://github.com/jolicode/JoliTypo/issues"
             },
-            "time": "2015-07-13 15:05:16"
+            "time": "2019-07-01T08:09:49+00:00"
+        },
+        {
+            "name": "org_heigl/hyphenator",
+            "version": "v2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/heiglandreas/Org_Heigl_Hyphenator.git",
+                "reference": "9a8ac28f654e1ec0779caaffe57edcd2575973f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/heiglandreas/Org_Heigl_Hyphenator/zipball/9a8ac28f654e1ec0779caaffe57edcd2575973f6",
+                "reference": "9a8ac28f654e1ec0779caaffe57edcd2575973f6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^5.3||^7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9",
+                "phpunit/phpunit": "^4.8||^5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Org\\Heigl\\Hyphenator\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Heigl",
+                    "role": "developer",
+                    "email": "andreas@heigl.org",
+                    "homepage": "http://andreas.heigl.org"
+                }
+            ],
+            "description": "Word-Hyphenation for PHP based on the TeX-Hyphenation algorithm",
+            "homepage": "http://github.com/heiglandreas/Org_Heigl_Hyphenator",
+            "keywords": [
+                "hyphenate",
+                "hyphenation"
+            ],
+            "time": "2017-03-20T20:12:10+00:00"
         }
     ],
     "packages-dev": [],
